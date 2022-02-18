@@ -2,15 +2,18 @@ function validate(){
     var fullname=$("#name").val().trim()
     var youremail=$("#email").val().trim()
     var mobilenumber=$("#mobile").val().trim()
+    var yourmessage=$("#message").val().trim()
     let a=0
 
     var regexname = /^[a-z ,.'-]+$/i
     var regexemail =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     var regexnumber = /^(\+\d{1,3}[- ]?)?\d{10}$/
+    var regexmessage = /^[A-Za-z ]+$/
 
     namevalidation()
     emailvalidation()
     mobilevalidation()
+    messagevalidation()
     
     function namevalidation()
     {
@@ -73,8 +76,27 @@ function validate(){
             a+=1
         }
     }
+    
+    function messagevalidation()
+    {
+        if(yourmessage == "")
+        {
+            $("#error4").show()
+            $("#error4").text("This field is required")
+        }
+        else if(!regexmessage.test(yourmessage))
+        {
+            $("#error4").show()
+            $("#error4").text("Enter a valid message")
+        }
+        else
+        {
+            $("#error4").hide()
+            a+=1
+        }
+    }
 
-    if(a == 3)
+    if(a == 4)
     {
         return true
     }
