@@ -9,6 +9,10 @@
 //--//-->   STYLES GENERALES
 ======================================*/
 
+*{
+  overflow-x: hidden;
+}
+
 body {
   background-color: #f5f5f5;
   color: #4e4e4e;
