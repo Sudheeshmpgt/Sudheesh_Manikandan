@@ -9,8 +9,8 @@
 //--//-->   STYLES GENERALES
 ======================================*/
 
-*{
-  overflow-x: hidden;
+.main{
+  overflow: hidden;
 }
 
 body {
