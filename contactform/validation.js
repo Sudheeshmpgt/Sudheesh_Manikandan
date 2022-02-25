@@ -106,20 +106,32 @@ function validate(){
     }
 }
 
+function check(){
+    if(1<2){
+       value=true; 
+    }else{
+        value=false;
+    }
+}
+
 $("#submit-form").submit((e)=>{
     e.preventDefault()
-    $.ajax({
-        url:"https://script.google.com/macros/s/AKfycbwSlWLuO2ZA-OtkB_o3_d-sTGzjQuTgMkqQSgthH-BHp23zfUX1vB0iHxTOUMHnbrGZ/exec",
-        data:$("#submit-form").serialize(),
-        method:"post",
-        success:function (response){
+    if(value==true){
+        value=false;
+    
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbwSlWLuO2ZA-OtkB_o3_d-sTGzjQuTgMkqQSgthH-BHp23zfUX1vB0iHxTOUMHnbrGZ/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
             alert("Form submitted successfully")
             window.location.reload()
             //window.location.href="https://google.com"
-        },
-        error:function (err){
-            alert("Something Error")
+            },
+            error:function (err){
+                alert("Something Error")
 
-        }
-    })
+            }
+        })
+    }
 })
